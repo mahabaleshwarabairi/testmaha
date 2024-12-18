@@ -4,10 +4,7 @@ pipeline {
         registry = "1mahabaleshwara/myapp" 
         registryCredential = 'dockerhub' 
    }
-   parameters {
-    password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password')
-   }
-
+  
   stages {
    stage('Stage I: Build') {
       steps {
