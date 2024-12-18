@@ -81,16 +81,6 @@ pipeline {
         sh "docker rm --force smokerun"
         }
     }
-
-   stage('Stage IX: Trigger Deployment'){
-      steps { 
-       script {
-        TAG = "$BUILD_NUMBER"
-         echo "Trigger CD Pipeline"
-          build wait: false, job: 'springboot-cd-pipeline', parameters: [password(name: 'PASSWD', description: 'Please Enter your Gitlab password', value: params.PASSWD),string(name: 'IMAGETAG', value: TAG)]
-       }
-      }
-    }
    
   }
 }
