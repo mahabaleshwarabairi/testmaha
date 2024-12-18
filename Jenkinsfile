@@ -13,21 +13,21 @@ pipeline {
       steps {
         git branch: 'main', credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/mahabaleshwarabairi/testmaha.git'
         echo "Building Jar Component ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn clean package "
+        sh "export JAVA_HOME=/usr/lib/jvm//usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn clean package "
       }
     }
 
    stage('Stage II: Code Coverage ') {
       steps {
 	    echo "Running Code Coverage ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn jacoco:report"
+        sh "export JAVA_HOME=/usr/lib/jvm//usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn jacoco:report"
       }
     }
 
    stage('Stage III: SCA') {
       steps { 
         echo "Running Software Composition Analysis using OWASP Dependency-Check ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn org.owasp:dependency-check-maven:check"
+        sh "export JAVA_HOME=/usr/lib/jvm//usr/lib/jvm/java-1.8.0-openjdk-1.8.0.432.b06-3.el9.x86_64; mvn org.owasp:dependency-check-maven:check"
       }
     }
 
